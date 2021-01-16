@@ -1,0 +1,19 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		title Document
+		link(href="./styles/style.css", rel="stylesheet")
+	
+	body(class="bg-gray-100 min-h-screen flex justify-center items-center")
+		div(class="bg-white border-2 rounded border-black p-4 shadow-lg")
+			div(class="w-full h-full border border-black rounded")
+				form(action="api" method="post")
+					input(class="p-2 flex-grow rounded focus:outline-none" type="text", name="content")
+					input(class="p-2 flex-grow-0 h-full rounded" type="submit")
+			div(class="divide-y")
+				each post in posts.reverse()
+					div(class="py-4")
+						div(class="text-lg") #{post.content}
+						div(class="text-sm") #{post.createdAt.toUTCString()}
